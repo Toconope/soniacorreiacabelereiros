@@ -72,9 +72,9 @@ const actions = [
 
 function Index() {
   return (
-    <div className="relative min-h-screen bg-paper font-sans text-brand-text flex flex-col items-center px-5 pb-16">
+    <div className="relative min-h-screen font-sans text-brand-text flex flex-col items-center px-5 pb-16">
       {/* Fundo fotográfico com véu para legibilidade */}
-      <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-paper" aria-hidden="true">
         <img
           src={salonBg.url}
           alt=""
