@@ -143,7 +143,7 @@ function Index() {
           </h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-brand-muted">Terça a Sábado</span>
+              <span className="text-brand-muted">Terça a Sexta</span>
               <span className="font-medium text-right">09:00 – 12:30<br />14:00 – 19:00</span>
             </div>
             <div className="flex justify-between">
