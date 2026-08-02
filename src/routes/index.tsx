@@ -80,9 +80,9 @@ function Index() {
           alt=""
           width={1280}
           height={1920}
-          className="h-full w-full object-cover object-[50%_25%] opacity-[0.30]"
+          className="h-full w-full object-cover object-[50%_25%] opacity-[0.55]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--brand-bg)_55%,transparent)_0%,color-mix(in_oklab,var(--brand-bg)_88%,transparent)_45%,var(--brand-bg)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--brand-bg)_30%,transparent)_0%,color-mix(in_oklab,var(--brand-bg)_80%,transparent)_45%,var(--brand-bg)_100%)]" />
       </div>
 
       <header className="w-full max-w-md pt-14 sm:pt-20 pb-10 flex flex-col items-center text-center">
