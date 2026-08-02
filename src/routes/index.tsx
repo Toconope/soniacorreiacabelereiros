@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MapPin, Instagram, Facebook, ArrowRight } from "lucide-react";
-import salonAvatar from "@/assets/salon-avatar.jpg";
+import { SalonLogo } from "@/components/SalonLogo";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,21 +36,14 @@ const services = [
 function Index() {
   return (
     <div className="min-h-screen bg-brand-bg font-sans text-brand-text flex flex-col items-center px-5 pb-12">
-      <header className="w-full max-w-md pt-12 pb-8 flex flex-col items-center text-center">
-        <div className="mb-6 relative">
-          <div className="size-32 rounded-full bg-brand-surface outline outline-1 outline-brand-text/5 overflow-hidden shadow-sm">
-            <img
-              src={salonAvatar}
-              alt="Logótipo de Sónia Correia Cabeleireiros"
-              width={128}
-              height={128}
-              className="h-full w-full object-cover"
-            />
-          </div>
+      <header className="w-full max-w-md pt-12 sm:pt-16 pb-8 flex flex-col items-center text-center">
+        <div className="mb-7 sm:mb-8 relative">
+          <SalonLogo />
           <div className="absolute -bottom-2 -right-2 bg-brand-gold text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm">
             20+ Anos
           </div>
         </div>
+
         <h1 className="font-serif text-3xl font-bold tracking-tight mb-1">
           Sónia Correia
         </h1>
