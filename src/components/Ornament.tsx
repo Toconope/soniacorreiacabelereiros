@@ -1,14 +1,17 @@
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 type OrnamentProps = {
   className?: string;
+  style?: CSSProperties;
 };
 
 /** Divisória decorativa fina com losango central dourado. */
-export function Ornament({ className }: OrnamentProps) {
+export function Ornament({ className, style }: OrnamentProps) {
   return (
     <div
       className={cn("flex items-center justify-center gap-3", className)}
+      style={style}
       aria-hidden="true"
     >
       <span className="h-px w-16 bg-gradient-to-r from-transparent to-brand-gold/60" />

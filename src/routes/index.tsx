@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MapPin, Instagram, Facebook, ArrowRight } from "lucide-react";
 import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
+import salonBg from "@/assets/salon-bg.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE_NUMBER = "+351256000000";
+const PHONE_NUMBER = "+351256385045";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
 const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros?igsh=MWExczQyMGV3OHE3OA==";
 const FACEBOOK_URL = "https://www.facebook.com/share/1N5PRLCdZA/";
@@ -32,13 +33,67 @@ const services = [
   { title: "Penteados", subtitle: "Para ocasiões especiais" },
 ];
 
+const externalLink = { target: "_blank", rel: "noopener noreferrer" } as const;
+
+const actions = [
+  {
+    href: `tel:${PHONE_NUMBER}`,
+    label: "Ligar agora",
+    aria: "Ligar para o salão: 256 385 045",
+    Icon: Phone,
+    primary: true,
+    external: false,
+  },
+  {
+    href: MAPS_URL,
+    label: "Ver localização",
+    aria: "Ver localização no Google Maps",
+    Icon: MapPin,
+    primary: false,
+    external: true,
+  },
+  {
+    href: INSTAGRAM_URL,
+    label: "Seguir no Instagram",
+    aria: "Seguir Sónia Correia Cabeleireiros no Instagram",
+    Icon: Instagram,
+    primary: false,
+    external: true,
+  },
+  {
+    href: FACEBOOK_URL,
+    label: "Facebook",
+    aria: "Seguir Sónia Correia Cabeleireiros no Facebook",
+    Icon: Facebook,
+    primary: false,
+    external: true,
+  },
+];
+
 function Index() {
   return (
-    <div className="min-h-screen bg-paper font-sans text-brand-text flex flex-col items-center px-5 pb-16">
-      <header className="w-full max-w-md pt-14 sm:pt-20 pb-10 flex flex-col items-center text-center">
-        <SalonLogo />
+    <div className="relative min-h-screen font-sans text-brand-text flex flex-col items-center px-5 pb-16">
+      {/* Fundo fotográfico com véu para legibilidade */}
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-paper" aria-hidden="true">
+        <img
+          src={salonBg.url}
+          alt=""
+          width={1280}
+          height={1920}
+          className="h-full w-full object-cover object-[50%_25%] opacity-[0.85]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--brand-bg)_10%,transparent)_0%,color-mix(in_oklab,var(--brand-bg)_70%,transparent)_50%,var(--brand-bg)_100%)]" />
+      </div>
 
-        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-brand-gold/50 bg-brand-bg/60 px-4 py-1.5 backdrop-blur-sm">
+      <header className="w-full max-w-md pt-14 sm:pt-20 pb-10 flex flex-col items-center text-center">
+        <div className="rise" style={{ animationDelay: "0ms" }}>
+          <SalonLogo />
+        </div>
+
+        <div
+          className="rise mt-8 inline-flex items-center gap-2 rounded-full border border-brand-gold/50 bg-brand-bg/60 px-4 py-1.5 backdrop-blur-sm"
+          style={{ animationDelay: "120ms" }}
+        >
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
             Desde há 20+ anos
@@ -46,16 +101,22 @@ function Index() {
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
         </div>
 
-        <h1 className="mt-8 font-serif text-4xl font-bold tracking-tight">
+        <h1 className="rise mt-8 font-serif text-4xl font-bold tracking-tight" style={{ animationDelay: "220ms" }}>
           Sónia Correia
         </h1>
-        <p className="mt-2 text-brand-accent font-medium uppercase text-[11px] tracking-[0.45em] pl-[0.45em]">
+        <p
+          className="rise mt-2 text-brand-accent font-medium uppercase text-[11px] tracking-[0.45em] pl-[0.45em]"
+          style={{ animationDelay: "300ms" }}
+        >
           Cabeleireiros
         </p>
 
-        <Ornament className="mt-7" />
+        <Ornament className="rise mt-7" style={{ animationDelay: "380ms" }} />
 
-        <p className="mt-6 max-w-xs font-serif italic text-[15px] leading-relaxed text-brand-muted">
+        <p
+          className="rise mt-6 max-w-xs font-serif italic text-[15px] leading-relaxed text-brand-muted"
+          style={{ animationDelay: "440ms" }}
+        >
           <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">“</span>
           Mais de 20 anos a cuidar do seu cabelo
           <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">”</span>
@@ -63,59 +124,31 @@ function Index() {
       </header>
 
       <main className="w-full max-w-md space-y-3.5">
-        <a
-          href={`tel:${PHONE_NUMBER}`}
-          className="group flex items-center justify-between w-full surface-dark text-primary-foreground py-6 px-7 rounded-2xl ring-1 ring-brand-gold/40 shadow-gold active:scale-[0.985] transition-all"
-          aria-label="Ligar para o salão"
-        >
-          <span className="flex items-center gap-3.5 font-medium tracking-wide">
-            <Phone className="size-5 shrink-0 text-brand-gold" aria-hidden="true" />
-            Ligar agora
-          </span>
-          <ArrowRight className="size-5 text-brand-gold group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-        </a>
-
-        <a
-          href={MAPS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft active:scale-[0.985] transition-all"
-          aria-label="Ver localização no Google Maps"
-        >
-          <span className="flex items-center gap-3.5 font-medium tracking-wide text-brand-text">
-            <MapPin className="size-5 shrink-0 text-brand-gold" aria-hidden="true" />
-            Ver localização
-          </span>
-          <ArrowRight className="size-4 text-brand-gold/70 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-        </a>
-
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft active:scale-[0.985] transition-all"
-          aria-label="Seguir Sónia Correia Cabeleireiros no Instagram"
-        >
-          <span className="flex items-center gap-3.5 font-medium tracking-wide text-brand-text">
-            <Instagram className="size-5 shrink-0 text-brand-gold" aria-hidden="true" />
-            Seguir no Instagram
-          </span>
-          <ArrowRight className="size-4 text-brand-gold/70 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-        </a>
-
-        <a
-          href={FACEBOOK_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft active:scale-[0.985] transition-all"
-          aria-label="Seguir Sónia Correia Cabeleireiros no Facebook"
-        >
-          <span className="flex items-center gap-3.5 font-medium tracking-wide text-brand-text">
-            <Facebook className="size-5 shrink-0 text-brand-gold" aria-hidden="true" />
-            Facebook
-          </span>
-          <ArrowRight className="size-4 text-brand-gold/70 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-        </a>
+        {actions.map(({ href, label, aria, Icon, primary, external }, i) => (
+          <a
+            key={label}
+            href={href}
+            {...(external ? externalLink : {})}
+            aria-label={aria}
+            style={{ animationDelay: `${540 + i * 110}ms` }}
+            className={
+              primary
+                ? "rise group flex items-center justify-between w-full surface-dark text-primary-foreground py-6 px-7 rounded-2xl ring-1 ring-brand-gold/40 shadow-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-brand-gold/80 active:scale-[0.985]"
+                : "rise group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-brand-gold/70 hover:shadow-gold active:scale-[0.985]"
+            }
+          >
+            <span
+              className={`flex items-center gap-3.5 font-medium tracking-wide ${primary ? "" : "text-brand-text"}`}
+            >
+              <Icon className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+              {label}
+            </span>
+            <ArrowRight
+              className={`${primary ? "size-5 text-brand-gold" : "size-4 text-brand-gold/70"} transition-transform duration-300 group-hover:translate-x-1`}
+              aria-hidden="true"
+            />
+          </a>
+        ))}
 
         <section className="pt-14 pb-8">
           <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
@@ -127,7 +160,7 @@ function Index() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="surface-card border border-brand-gold/15 p-5 rounded-xl flex flex-col items-center text-center shadow-soft"
+                className="surface-card border border-brand-gold/15 p-5 rounded-xl flex flex-col items-center text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/50"
               >
                 <span className="text-[11px] uppercase tracking-[0.2em] text-brand-accent font-semibold mb-1.5">
                   {service.title}
@@ -176,9 +209,8 @@ function Index() {
           </div>
           <a
             href={MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-brand-gold/40 py-3.5 text-sm font-medium tracking-wide text-brand-text transition-colors hover:bg-brand-gold/10"
+            {...externalLink}
+            className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-brand-gold/40 py-3.5 text-sm font-medium tracking-wide text-brand-text transition-all duration-300 hover:bg-brand-gold/10 hover:border-brand-gold/80"
           >
             <MapPin className="size-4 mr-2 text-brand-gold" aria-hidden="true" />
             Abrir no Google Maps
@@ -197,9 +229,9 @@ function Index() {
             <a
               key={label}
               href={href}
-              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              {...(external ? externalLink : {})}
               aria-label={label}
-              className="flex size-11 items-center justify-center rounded-full border border-brand-gold/35 surface-card text-brand-gold transition-colors hover:bg-brand-gold/10"
+              className="flex size-11 items-center justify-center rounded-full border border-brand-gold/35 surface-card text-brand-gold transition-all duration-300 hover:bg-brand-gold/10 hover:scale-110 hover:border-brand-gold/80"
             >
               <Icon className="size-[18px]" aria-hidden="true" />
             </a>
