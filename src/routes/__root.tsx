@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sónia Correia Cabeleireiros" },
-      { name: "description", content: "Salão de cabeleireiro em São João da Madeira com mais de 20 anos de experiência. Corte, coloração, tratamentos e penteados." },
+      { title: "Sónia Correia Cabeleireiros — São João da Madeira" },
+      { name: "description", content: "Link oficial do Instagram de Sónia Correia Cabeleireiros. Telefone, morada, horário e serviços em São João da Madeira." },
       { name: "author", content: "Sónia Correia Cabeleireiros" },
-      { property: "og:title", content: "Sónia Correia Cabeleireiros" },
-      { property: "og:description", content: "Salão de cabeleireiro em São João da Madeira com mais de 20 anos de experiência." },
+      { property: "og:title", content: "Sónia Correia Cabeleireiros — São João da Madeira" },
+      { property: "og:description", content: "Link oficial do Instagram de Sónia Correia Cabeleireiros. Telefone, morada, horário e serviços em São João da Madeira." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@SoniaCorreiaCabeleireiros" },
+      { name: "twitter:title", content: "Sónia Correia Cabeleireiros — São João da Madeira" },
+      { name: "twitter:description", content: "Link oficial do Instagram de Sónia Correia Cabeleireiros. Telefone, morada, horário e serviços em São João da Madeira." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dfa7ed9-0c28-4a8f-bfd8-f946a6d3ec83/id-preview-9e8d95e1--8803c793-05b5-4bb0-9279-0a55abec5efc.lovable.app-1785712657153.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8dfa7ed9-0c28-4a8f-bfd8-f946a6d3ec83/id-preview-9e8d95e1--8803c793-05b5-4bb0-9279-0a55abec5efc.lovable.app-1785712657153.png" },
     ],
     links: [
       {

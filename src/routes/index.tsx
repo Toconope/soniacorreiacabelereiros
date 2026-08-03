@@ -9,8 +9,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Sónia Correia Cabeleireiros — São João da Madeira" },
       { name: "description", content: "Link oficial do Instagram de Sónia Correia Cabeleireiros. Telefone, morada, horário e serviços em São João da Madeira." },
-      { property: "og:title", content: "Sónia Correia Cabeleireiros" },
-      { property: "og:description", content: "Mais de 20 anos a cuidar do seu cabelo em São João da Madeira." },
+      { property: "og:title", content: "Sónia Correia Cabeleireiros — São João da Madeira" },
+      { property: "og:description", content: "Link oficial do Instagram de Sónia Correia Cabeleireiros. Telefone, morada, horário e serviços em São João da Madeira." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
