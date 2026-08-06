@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Instagram, Facebook, ArrowRight, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Instagram, Facebook, ArrowRight } from "lucide-react";
 import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
 import salonBg from "@/assets/salon-bg.jpg.asset.json";
@@ -28,10 +28,12 @@ export const Route = createFileRoute("/")({
 });
 
 const PHONE_NUMBER = "+351256385045";
+const WHATSAPP_NUMBER = "+351912865804";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
 const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros?igsh=MWExczQyMGV3OHE3OA==";
 const FACEBOOK_URL = "https://www.facebook.com/share/1N5PRLCdZA/";
 const MAPS_URL = "https://maps.app.goo.gl/KcxL4je6UDotA8QLA?g_st=aw";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}`;
 const MAPS_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(ADDRESS)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
 const services = [
