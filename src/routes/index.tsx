@@ -56,6 +56,14 @@ const actions = [
     external: false,
   },
   {
+    href: WHATSAPP_URL,
+    label: "WhatsApp",
+    aria: "Enviar mensagem por WhatsApp",
+    Icon: WhatsAppIcon,
+    primary: false,
+    external: true,
+  },
+  {
     href: MAPS_URL,
     label: "Ver localização",
     aria: "Ver localização no Google Maps",
