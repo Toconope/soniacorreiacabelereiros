@@ -2,7 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MapPin, Instagram, Facebook, ArrowRight, AtSign } from "lucide-react";
 import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import salonBg from "@/assets/salon-bg.jpg.asset.json";
+import galeria1 from "@/assets/galeria-1.jpg.asset.json";
+import galeria2 from "@/assets/galeria-2.jpg.asset.json";
+import galeria3 from "@/assets/galeria-3.jpg.asset.json";
+import galeria4 from "@/assets/galeria-4.jpg.asset.json";
+import galeria5 from "@/assets/galeria-5.jpg.asset.json";
+import galeria6 from "@/assets/galeria-6.jpg.asset.json";
+import galeria7 from "@/assets/galeria-7.jpg.asset.json";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -50,55 +58,13 @@ const services = [
 
 const externalLink = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-const actions = [
-  {
-    href: `tel:${PHONE_NUMBER}`,
-    label: "Ligar agora",
-    aria: "Ligar para o salão: 256 385 045",
-    Icon: Phone,
-    primary: true,
-    external: false,
-  },
-  {
-    href: WHATSAPP_URL,
-    label: "WhatsApp",
-    aria: "Enviar mensagem por WhatsApp",
-    Icon: WhatsAppIcon,
-    primary: false,
-    external: true,
-  },
-  {
-    href: MAPS_URL,
-    label: "Ver localização",
-    aria: "Ver localização no Google Maps",
-    Icon: MapPin,
-    primary: false,
-    external: true,
-  },
-  {
-    href: INSTAGRAM_URL,
-    label: "Seguir no Instagram",
-    aria: "Seguir Sónia Correia Cabeleireiros no Instagram",
-    Icon: Instagram,
-    primary: false,
-    external: true,
-  },
-  {
-    href: FACEBOOK_URL,
-    label: "Facebook",
-    aria: "Seguir Sónia Correia Cabeleireiros no Facebook",
-    Icon: Facebook,
-    primary: false,
-    external: true,
-  },
-  {
-    href: THREADS_URL,
-    label: "Threads",
-    aria: "Seguir Sónia Correia Cabeleireiros no Threads",
-    Icon: AtSign,
-    primary: false,
-    external: true,
-  },
+const gallery = [galeria1, galeria2, galeria3, galeria4, galeria5, galeria6, galeria7];
+
+const socials = [
+  { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram, external: true },
+  { href: FACEBOOK_URL, label: "Facebook", Icon: Facebook, external: true },
+  { href: THREADS_URL, label: "Threads", Icon: AtSign, external: true },
+  { href: `tel:${PHONE_NUMBER}`, label: "Telefone", Icon: Phone, external: false },
 ];
 
 function Index() {
@@ -154,33 +120,23 @@ function Index() {
         </p>
       </header>
 
-      <main className="w-full max-w-md space-y-3.5">
-        {actions.map(({ href, label, aria, Icon, primary, external }, i) => (
-          <a
-            key={label}
-            href={href}
-            {...(external ? externalLink : {})}
-            aria-label={aria}
-            style={{ animationDelay: `${540 + i * 110}ms` }}
-            className={
-              primary
-                ? "rise group flex items-center justify-between w-full surface-dark text-primary-foreground py-6 px-7 rounded-2xl ring-1 ring-brand-gold/40 shadow-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-brand-gold/80 active:scale-[0.985]"
-                : "rise group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-brand-gold/70 hover:shadow-gold active:scale-[0.985]"
-            }
-          >
-            <span
-              className={`flex items-center gap-3.5 font-medium tracking-wide ${primary ? "" : "text-brand-text"}`}
-            >
-              <Icon className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-              {label}
-            </span>
-            <ArrowRight
-              className={`${primary ? "size-5 text-brand-gold" : "size-4 text-brand-gold/70"} transition-transform duration-300 group-hover:translate-x-1`}
-              aria-hidden="true"
-            />
-          </a>
-        ))}
+      <main className="w-full max-w-md">
+        {/* CTA principal — WhatsApp */}
+        <a
+          href={WHATSAPP_URL}
+          {...externalLink}
+          aria-label="Marcar via WhatsApp"
+          style={{ animationDelay: "540ms" }}
+          className="rise group flex items-center justify-between w-full surface-dark text-primary-foreground py-6 px-7 rounded-2xl ring-1 ring-brand-gold/40 shadow-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-brand-gold/80 active:scale-[0.985]"
+        >
+          <span className="flex items-center gap-3.5 font-medium tracking-wide">
+            <WhatsAppIcon className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" />
+            Marcar via WhatsApp
+          </span>
+          <ArrowRight className="size-5 text-brand-gold transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+        </a>
 
+        {/* Serviços */}
         <section className="pt-14 pb-8">
           <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
             Salão
@@ -211,6 +167,35 @@ function Index() {
           </div>
         </section>
 
+        {/* Galeria */}
+        <section className="pb-10">
+          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
+            Trabalhos
+          </p>
+          <h2 className="font-serif text-2xl italic text-center">Galeria</h2>
+          <Ornament className="mt-5 mb-8" />
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent className="-ml-3">
+              {gallery.map((photo, i) => (
+                <CarouselItem key={photo.url} className="pl-3 basis-4/5 sm:basis-1/2">
+                  <div className="relative overflow-hidden rounded-2xl border border-brand-gold/30 shadow-soft aspect-[4/5] bg-brand-surface">
+                    <img
+                      src={photo.url}
+                      alt={`Trabalho do salão ${i + 1}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--brand-bg)_45%,transparent)_0%,transparent_45%)]" />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-4 border-brand-gold/40 text-brand-gold surface-card" />
+            <CarouselNext className="hidden sm:flex -right-4 border-brand-gold/40 text-brand-gold surface-card" />
+          </Carousel>
+        </section>
+
+        {/* Horário + Morada */}
         <section className="surface-card rounded-3xl p-8 border border-brand-gold/25 shadow-soft">
           <h3 className="font-serif text-lg italic">Horário</h3>
           <span className="mt-2 mb-5 block h-px w-full bg-gradient-to-r from-brand-gold/50 to-transparent" />
@@ -254,17 +239,32 @@ function Index() {
             Abrir no Google Maps
           </a>
         </section>
+
+        {/* Contactos */}
+        <section className="pt-14">
+          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
+            Fale connosco
+          </p>
+          <h2 className="font-serif text-2xl italic text-center">Contactos</h2>
+          <Ornament className="mt-5 mb-8" />
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            aria-label="Ligar para o salão: 256 385 045"
+            className="group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/70 hover:shadow-gold active:scale-[0.985]"
+          >
+            <span className="flex items-center gap-3.5 font-medium tracking-wide text-brand-text">
+              <Phone className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+              +351 256 385 045
+            </span>
+            <ArrowRight className="size-4 text-brand-gold/70 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+          </a>
+        </section>
       </main>
 
-      <footer className="w-full max-w-md mt-16 text-center">
+      <footer className="w-full max-w-md mt-12 text-center">
         <Ornament className="mb-8" />
         <div className="flex justify-center items-center gap-4 mb-6">
-          {[
-            { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram, external: true },
-            { href: FACEBOOK_URL, label: "Facebook", Icon: Facebook, external: true },
-            { href: THREADS_URL, label: "Threads", Icon: AtSign, external: true },
-            { href: `tel:${PHONE_NUMBER}`, label: "Telefone", Icon: Phone, external: false },
-          ].map(({ href, label, Icon, external }) => (
+          {socials.map(({ href, label, Icon, external }) => (
             <a
               key={label}
               href={href}
