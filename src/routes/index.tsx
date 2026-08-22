@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Instagram, Facebook, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Instagram, Facebook, ArrowRight, AtSign } from "lucide-react";
 import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
 import salonBg from "@/assets/salon-bg.jpg.asset.json";
@@ -30,18 +30,22 @@ export const Route = createFileRoute("/")({
 const PHONE_NUMBER = "+351256385045";
 const WHATSAPP_NUMBER = "+351912865804";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
-const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros?igsh=MWExczQyMGV3OHE3OA==";
-const FACEBOOK_URL = "https://www.facebook.com/share/1N5PRLCdZA/";
+const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros";
+const FACEBOOK_URL = "https://www.facebook.com/share/1BVVjMdrgZ/";
+const THREADS_URL = "https://www.threads.com/@soniacorreiacabeleireiros";
 const MAPS_URL = "https://maps.app.goo.gl/KcxL4je6UDotA8QLA?g_st=aw";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}`;
+const WHATSAPP_MESSAGE = "Olá! Gostaria de marcar uma consulta/tratamento. Podem ajudar-me?";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 const MAPS_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(ADDRESS)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+const waUrl = (message: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(message)}`;
 
 const services = [
-  { title: "Corte", subtitle: "Feminino e Masculino" },
-  { title: "Coloração", subtitle: "Madeixas e Balayage" },
-  { title: "Tratamentos", subtitle: "Hidratação Profunda" },
-  { title: "Alisamento", subtitle: "Queratina e Progressiva" },
-  { title: "Penteados", subtitle: "Para ocasiões especiais" },
+  { title: "Corte", subtitle: "Feminino e Masculino", message: "Olá! Gostaria de marcar um Corte (feminino/masculino). Podem ajudar-me com a disponibilidade?" },
+  { title: "Coloração", subtitle: "Madeixas e Balayage", message: "Olá! Tenho interesse em Coloração (madeixas/balayage). Podem indicar-me a disponibilidade?" },
+  { title: "Tratamentos", subtitle: "Hidratação Profunda", message: "Olá! Gostaria de saber mais sobre os Tratamentos de Hidratação Profunda e marcar uma sessão." },
+  { title: "Alisamento", subtitle: "Queratina e Progressiva", message: "Olá! Tenho interesse em Alisamento (queratina/progressiva). Qual a vossa disponibilidade?" },
+  { title: "Penteados", subtitle: "Para ocasiões especiais", message: "Olá! Preciso de um Penteado para uma ocasião especial. Podem ajudar-me a marcar?" },
 ];
 
 const externalLink = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -84,6 +88,14 @@ const actions = [
     label: "Facebook",
     aria: "Seguir Sónia Correia Cabeleireiros no Facebook",
     Icon: Facebook,
+    primary: false,
+    external: true,
+  },
+  {
+    href: THREADS_URL,
+    label: "Threads",
+    aria: "Seguir Sónia Correia Cabeleireiros no Threads",
+    Icon: AtSign,
     primary: false,
     external: true,
   },
@@ -177,9 +189,12 @@ function Index() {
           <Ornament className="mt-5 mb-8" />
           <div className="grid grid-cols-2 gap-3">
             {services.map((service) => (
-              <div
+              <a
                 key={service.title}
-                className="surface-card border border-brand-gold/15 p-5 rounded-xl flex flex-col items-center text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/50"
+                href={waUrl(service.message)}
+                {...externalLink}
+                aria-label={`Marcar ${service.title} via WhatsApp`}
+                className="surface-card border border-brand-gold/15 p-5 rounded-xl flex flex-col items-center text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/50 hover:shadow-gold active:scale-[0.97]"
               >
                 <span className="text-[11px] uppercase tracking-[0.2em] text-brand-accent font-semibold mb-1.5">
                   {service.title}
@@ -187,7 +202,11 @@ function Index() {
                 <span className="text-[10px] text-brand-muted leading-tight">
                   {service.subtitle}
                 </span>
-              </div>
+                <span className="mt-2.5 inline-flex items-center gap-1 text-[9px] uppercase tracking-[0.15em] text-brand-gold/80">
+                  <WhatsAppIcon className="size-3" />
+                  Marcar
+                </span>
+              </a>
             ))}
           </div>
         </section>
@@ -243,6 +262,7 @@ function Index() {
           {[
             { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram, external: true },
             { href: FACEBOOK_URL, label: "Facebook", Icon: Facebook, external: true },
+            { href: THREADS_URL, label: "Threads", Icon: AtSign, external: true },
             { href: `tel:${PHONE_NUMBER}`, label: "Telefone", Icon: Phone, external: false },
           ].map(({ href, label, Icon, external }) => (
             <a
