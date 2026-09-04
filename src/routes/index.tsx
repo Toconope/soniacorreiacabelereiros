@@ -4,13 +4,16 @@ import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import salonBg from "@/assets/salon-bg.jpg.asset.json";
-import galeria1 from "@/assets/galeria-1.jpg.asset.json";
 import galeria2 from "@/assets/galeria-2.jpg.asset.json";
 import galeria3 from "@/assets/galeria-3.jpg.asset.json";
 import galeria4 from "@/assets/galeria-4.jpg.asset.json";
 import galeria5 from "@/assets/galeria-5.jpg.asset.json";
 import galeria6 from "@/assets/galeria-6.jpg.asset.json";
 import galeria7 from "@/assets/galeria-7.jpg.asset.json";
+import galeria8 from "@/assets/galeria-8.jpg.asset.json";
+import galeria9 from "@/assets/galeria-9.jpg.asset.json";
+import galeria10 from "@/assets/galeria-10.jpg.asset.json";
+import galeriaVideo from "@/assets/galeria-video.mp4.asset.json";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -36,10 +39,10 @@ export const Route = createFileRoute("/")({
 });
 
 const PHONE_NUMBER = "+351256385045";
-const WHATSAPP_NUMBER = "+351912865804";
+const WHATSAPP_NUMBER = "+351923349258";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
 const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros";
-const FACEBOOK_URL = "https://www.facebook.com/share/1BVVjMdrgZ/";
+const FACEBOOK_URL = "https://www.facebook.com/share/1LhgAJ1v3v/";
 const THREADS_URL = "https://www.threads.com/@soniacorreiacabeleireiros";
 const MAPS_URL = "https://maps.app.goo.gl/KcxL4je6UDotA8QLA?g_st=aw";
 const WHATSAPP_MESSAGE = "Olá! Gostaria de marcar uma consulta/tratamento. Podem ajudar-me?";
@@ -49,16 +52,28 @@ const waUrl = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(message)}`;
 
 const services = [
-  { title: "Corte", subtitle: "Feminino e Masculino", message: "Olá! Gostaria de marcar um Corte (feminino/masculino). Podem ajudar-me com a disponibilidade?" },
-  { title: "Coloração", subtitle: "Madeixas e Balayage", message: "Olá! Tenho interesse em Coloração (madeixas/balayage). Podem indicar-me a disponibilidade?" },
-  { title: "Tratamentos", subtitle: "Hidratação Profunda", message: "Olá! Gostaria de saber mais sobre os Tratamentos de Hidratação Profunda e marcar uma sessão." },
+  { title: "Corte Feminino", subtitle: "Corte e acabamento", message: "Olá! Gostaria de marcar um Corte Feminino. Podem ajudar-me com a disponibilidade?" },
+  { title: "Coloração", subtitle: "Permanente e semi-permanente", message: "Olá! Tenho interesse em Coloração (permanente ou semi-permanente). Podem indicar-me a disponibilidade?" },
+  { title: "Tratamentos Capilares", subtitle: "Hidratação e reconstrução", message: "Olá! Gostaria de saber mais sobre os Tratamentos Capilares e marcar uma sessão." },
   { title: "Alisamento", subtitle: "Queratina e Progressiva", message: "Olá! Tenho interesse em Alisamento (queratina/progressiva). Qual a vossa disponibilidade?" },
-  { title: "Penteados", subtitle: "Para ocasiões especiais", message: "Olá! Preciso de um Penteado para uma ocasião especial. Podem ajudar-me a marcar?" },
+  { title: "Penteados Artísticos", subtitle: "Para ocasiões especiais", message: "Olá! Preciso de um Penteado Artístico para uma ocasião especial. Podem ajudar-me a marcar?" },
+  { title: "Brushing", subtitle: "Modelagem e brilho", message: "Olá! Gostaria de marcar um Brushing. Qual a vossa disponibilidade?" },
 ];
 
 const externalLink = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-const gallery = [galeria1, galeria2, galeria3, galeria4, galeria5, galeria6, galeria7];
+const gallery = [
+  { type: "video" as const, url: galeriaVideo.url },
+  { type: "image" as const, url: galeria8.url },
+  { type: "image" as const, url: galeria9.url },
+  { type: "image" as const, url: galeria10.url },
+  { type: "image" as const, url: galeria2.url },
+  { type: "image" as const, url: galeria3.url },
+  { type: "image" as const, url: galeria4.url },
+  { type: "image" as const, url: galeria5.url },
+  { type: "image" as const, url: galeria6.url },
+  { type: "image" as const, url: galeria7.url },
+];
 
 const socials = [
   { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram, external: true },
@@ -179,12 +194,25 @@ function Index() {
               {gallery.map((photo, i) => (
                 <CarouselItem key={photo.url} className="pl-3 basis-4/5 sm:basis-1/2">
                   <div className="relative overflow-hidden rounded-2xl border border-brand-gold/30 shadow-soft aspect-[4/5] bg-brand-surface">
-                    <img
-                      src={photo.url}
-                      alt={`Trabalho do salão ${i + 1}`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
-                    />
+                    {photo.type === "video" ? (
+                      <video
+                        src={photo.url}
+                        muted
+                        loop
+                        autoPlay
+                        playsInline
+                        preload="metadata"
+                        aria-label="Vídeo de trabalhos do salão"
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={photo.url}
+                        alt={`Trabalho do salão ${i + 1}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                      />
+                    )}
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--brand-bg)_45%,transparent)_0%,transparent_45%)]" />
                   </div>
                 </CarouselItem>
