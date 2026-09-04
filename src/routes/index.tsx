@@ -42,7 +42,7 @@ const PHONE_NUMBER = "+351256385045";
 const WHATSAPP_NUMBER = "+351923349258";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
 const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros";
-const FACEBOOK_URL = "https://www.facebook.com/share/1BVVjMdrgZ/";
+const FACEBOOK_URL = "https://www.facebook.com/share/1LhgAJ1v3v/";
 const THREADS_URL = "https://www.threads.com/@soniacorreiacabeleireiros";
 const MAPS_URL = "https://maps.app.goo.gl/KcxL4je6UDotA8QLA?g_st=aw";
 const WHATSAPP_MESSAGE = "Olá! Gostaria de marcar uma consulta/tratamento. Podem ajudar-me?";
