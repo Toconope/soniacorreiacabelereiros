@@ -52,16 +52,28 @@ const waUrl = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(message)}`;
 
 const services = [
-  { title: "Corte", subtitle: "Feminino e Masculino", message: "Olá! Gostaria de marcar um Corte (feminino/masculino). Podem ajudar-me com a disponibilidade?" },
-  { title: "Coloração", subtitle: "Madeixas e Balayage", message: "Olá! Tenho interesse em Coloração (madeixas/balayage). Podem indicar-me a disponibilidade?" },
-  { title: "Tratamentos", subtitle: "Hidratação Profunda", message: "Olá! Gostaria de saber mais sobre os Tratamentos de Hidratação Profunda e marcar uma sessão." },
+  { title: "Corte Feminino", subtitle: "Corte e acabamento", message: "Olá! Gostaria de marcar um Corte Feminino. Podem ajudar-me com a disponibilidade?" },
+  { title: "Coloração", subtitle: "Permanente e semi-permanente", message: "Olá! Tenho interesse em Coloração (permanente ou semi-permanente). Podem indicar-me a disponibilidade?" },
+  { title: "Tratamentos Capilares", subtitle: "Hidratação e reconstrução", message: "Olá! Gostaria de saber mais sobre os Tratamentos Capilares e marcar uma sessão." },
   { title: "Alisamento", subtitle: "Queratina e Progressiva", message: "Olá! Tenho interesse em Alisamento (queratina/progressiva). Qual a vossa disponibilidade?" },
-  { title: "Penteados", subtitle: "Para ocasiões especiais", message: "Olá! Preciso de um Penteado para uma ocasião especial. Podem ajudar-me a marcar?" },
+  { title: "Penteados Artísticos", subtitle: "Para ocasiões especiais", message: "Olá! Preciso de um Penteado Artístico para uma ocasião especial. Podem ajudar-me a marcar?" },
+  { title: "Brushing", subtitle: "Modelagem e brilho", message: "Olá! Gostaria de marcar um Brushing. Qual a vossa disponibilidade?" },
 ];
 
 const externalLink = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-const gallery = [galeria1, galeria2, galeria3, galeria4, galeria5, galeria6, galeria7];
+const gallery = [
+  { type: "video" as const, url: galeriaVideo.url },
+  { type: "image" as const, url: galeria8.url },
+  { type: "image" as const, url: galeria9.url },
+  { type: "image" as const, url: galeria10.url },
+  { type: "image" as const, url: galeria2.url },
+  { type: "image" as const, url: galeria3.url },
+  { type: "image" as const, url: galeria4.url },
+  { type: "image" as const, url: galeria5.url },
+  { type: "image" as const, url: galeria6.url },
+  { type: "image" as const, url: galeria7.url },
+];
 
 const socials = [
   { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram, external: true },
