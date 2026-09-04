@@ -4,13 +4,16 @@ import { SalonLogo } from "@/components/SalonLogo";
 import { Ornament } from "@/components/Ornament";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import salonBg from "@/assets/salon-bg.jpg.asset.json";
-import galeria1 from "@/assets/galeria-1.jpg.asset.json";
 import galeria2 from "@/assets/galeria-2.jpg.asset.json";
 import galeria3 from "@/assets/galeria-3.jpg.asset.json";
 import galeria4 from "@/assets/galeria-4.jpg.asset.json";
 import galeria5 from "@/assets/galeria-5.jpg.asset.json";
 import galeria6 from "@/assets/galeria-6.jpg.asset.json";
 import galeria7 from "@/assets/galeria-7.jpg.asset.json";
+import galeria8 from "@/assets/galeria-8.jpg.asset.json";
+import galeria9 from "@/assets/galeria-9.jpg.asset.json";
+import galeria10 from "@/assets/galeria-10.jpg.asset.json";
+import galeriaVideo from "@/assets/galeria-video.mp4.asset.json";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
