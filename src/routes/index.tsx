@@ -194,12 +194,25 @@ function Index() {
               {gallery.map((photo, i) => (
                 <CarouselItem key={photo.url} className="pl-3 basis-4/5 sm:basis-1/2">
                   <div className="relative overflow-hidden rounded-2xl border border-brand-gold/30 shadow-soft aspect-[4/5] bg-brand-surface">
-                    <img
-                      src={photo.url}
-                      alt={`Trabalho do salão ${i + 1}`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
-                    />
+                    {photo.type === "video" ? (
+                      <video
+                        src={photo.url}
+                        muted
+                        loop
+                        autoPlay
+                        playsInline
+                        preload="metadata"
+                        aria-label="Vídeo de trabalhos do salão"
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={photo.url}
+                        alt={`Trabalho do salão ${i + 1}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                      />
+                    )}
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--brand-bg)_45%,transparent)_0%,transparent_45%)]" />
                   </div>
                 </CarouselItem>
