@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
 });
 
 const PHONE_NUMBER = "+351256385045";
-const WHATSAPP_NUMBER = "+351912865804";
+const WHATSAPP_NUMBER = "+351923349258";
 const ADDRESS = "Rua da Banda da Música 94, São João da Madeira";
 const INSTAGRAM_URL = "https://www.instagram.com/soniacorreiacabeleireiros";
 const FACEBOOK_URL = "https://www.facebook.com/share/1BVVjMdrgZ/";
