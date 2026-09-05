@@ -107,17 +107,17 @@ function Index() {
           style={{ animationDelay: "120ms" }}
         >
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
             Desde há 20+ anos
           </span>
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
         </div>
 
-        <h1 className="rise mt-8 font-serif text-4xl font-bold tracking-tight" style={{ animationDelay: "220ms" }}>
+        <h1 className="rise mt-8 font-serif text-5xl font-bold tracking-tight" style={{ animationDelay: "220ms" }}>
           Sónia Correia
         </h1>
         <p
-          className="rise mt-2 text-brand-accent font-medium uppercase text-[11px] tracking-[0.45em] pl-[0.45em]"
+          className="rise mt-2 text-brand-accent font-medium uppercase text-[12px] tracking-[0.45em] pl-[0.45em]"
           style={{ animationDelay: "300ms" }}
         >
           Cabeleireiros
@@ -126,12 +126,12 @@ function Index() {
         <Ornament className="rise mt-7" style={{ animationDelay: "380ms" }} />
 
         <p
-          className="rise mt-6 max-w-xs font-serif italic text-[15px] leading-relaxed text-brand-muted"
+          className="rise mt-6 max-w-xs font-serif italic text-[16px] leading-relaxed text-brand-muted"
           style={{ animationDelay: "440ms" }}
         >
-          <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">“</span>
+          <span className="font-serif text-3xl leading-none text-brand-gold/70 align-[-0.15em]">“</span>
           Mais de 20 anos a cuidar do seu cabelo
-          <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">”</span>
+          <span className="font-serif text-3xl leading-none text-brand-gold/70 align-[-0.15em]">”</span>
         </p>
       </header>
 
@@ -144,7 +144,7 @@ function Index() {
           style={{ animationDelay: "540ms" }}
           className="rise group flex items-center justify-between w-full surface-dark text-primary-foreground py-6 px-7 rounded-2xl ring-1 ring-brand-gold/40 shadow-gold transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.015] hover:ring-brand-gold/80 active:scale-[0.985]"
         >
-          <span className="flex items-center gap-3.5 font-medium tracking-wide">
+          <span className="flex items-center gap-3.5 text-base font-medium tracking-wide">
             <WhatsAppIcon className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" />
             Marcar via WhatsApp
           </span>
@@ -153,10 +153,10 @@ function Index() {
 
         {/* Serviços */}
         <section className="pt-14 pb-8">
-          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
+          <p className="text-center text-[11px] uppercase tracking-[0.35em] text-brand-gold mb-3">
             Salão
           </p>
-          <h2 className="font-serif text-2xl italic text-center">Nossos Serviços</h2>
+          <h2 className="font-serif text-3xl italic text-center">Nossos Serviços</h2>
           <Ornament className="mt-5 mb-8" />
           <div className="grid grid-cols-2 gap-3">
             {services.map((service) => (
@@ -167,13 +167,13 @@ function Index() {
                 aria-label={`Marcar ${service.title} via WhatsApp`}
                 className="surface-card border border-brand-gold/15 p-5 rounded-xl flex flex-col items-center text-center shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/50 hover:shadow-gold active:scale-[0.97]"
               >
-                <span className="text-[11px] uppercase tracking-[0.2em] text-brand-accent font-semibold mb-1.5">
+                <span className="text-[12px] uppercase tracking-[0.2em] text-brand-accent font-semibold mb-1.5">
                   {service.title}
                 </span>
-                <span className="text-[10px] text-brand-muted leading-tight">
+                <span className="text-[11px] text-brand-muted leading-tight">
                   {service.subtitle}
                 </span>
-                <span className="mt-2.5 inline-flex items-center gap-1 text-[9px] uppercase tracking-[0.15em] text-brand-gold/80">
+                <span className="mt-2.5 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.15em] text-brand-gold/80">
                   <WhatsAppIcon className="size-3" />
                   Marcar
                 </span>
@@ -184,10 +184,10 @@ function Index() {
 
         {/* Galeria */}
         <section className="pb-10">
-          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
+          <p className="text-center text-[11px] uppercase tracking-[0.35em] text-brand-gold mb-3">
             Trabalhos
           </p>
-          <h2 className="font-serif text-2xl italic text-center">Galeria</h2>
+          <h2 className="font-serif text-3xl italic text-center">Galeria</h2>
           <Ornament className="mt-5 mb-8" />
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent className="-ml-3">
@@ -225,9 +225,9 @@ function Index() {
 
         {/* Horário + Morada */}
         <section className="surface-card rounded-3xl p-8 border border-brand-gold/25 shadow-soft">
-          <h3 className="font-serif text-lg italic">Horário</h3>
+          <h3 className="font-serif text-xl italic">Horário</h3>
           <span className="mt-2 mb-5 block h-px w-full bg-gradient-to-r from-brand-gold/50 to-transparent" />
-          <div className="space-y-2.5 text-sm">
+          <div className="space-y-2.5 text-base">
             <div className="flex justify-between">
               <span className="text-brand-muted">Terça a Sexta</span>
               <span className="font-medium text-right">09:00 – 12:30<br />14:00 – 19:00</span>
@@ -242,9 +242,9 @@ function Index() {
             </div>
           </div>
 
-          <h3 className="font-serif text-lg italic mt-10">Onde Estamos</h3>
+          <h3 className="font-serif text-xl italic mt-10">Onde Estamos</h3>
           <span className="mt-2 mb-5 block h-px w-full bg-gradient-to-r from-brand-gold/50 to-transparent" />
-          <p className="text-sm text-brand-muted mb-5">
+          <p className="text-base text-brand-muted mb-5">
             Rua da Banda da Música 94,<br />
             São João da Madeira
           </p>
@@ -261,7 +261,7 @@ function Index() {
           <a
             href={MAPS_URL}
             {...externalLink}
-            className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-brand-gold/40 py-3.5 text-sm font-medium tracking-wide text-brand-text transition-all duration-300 hover:bg-brand-gold/10 hover:border-brand-gold/80"
+            className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-brand-gold/40 py-3.5 text-base font-medium tracking-wide text-brand-text transition-all duration-300 hover:bg-brand-gold/10 hover:border-brand-gold/80"
           >
             <MapPin className="size-4 mr-2 text-brand-gold" aria-hidden="true" />
             Abrir no Google Maps
@@ -270,17 +270,17 @@ function Index() {
 
         {/* Contactos */}
         <section className="pt-14">
-          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-brand-gold mb-3">
+          <p className="text-center text-[11px] uppercase tracking-[0.35em] text-brand-gold mb-3">
             Fale connosco
           </p>
-          <h2 className="font-serif text-2xl italic text-center">Contactos</h2>
+          <h2 className="font-serif text-3xl italic text-center">Contactos</h2>
           <Ornament className="mt-5 mb-8" />
           <a
             href={`tel:${PHONE_NUMBER}`}
             aria-label="Ligar para o salão: 256 385 045"
             className="group flex items-center justify-between w-full surface-card border border-brand-gold/25 py-6 px-7 rounded-2xl shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-gold/70 hover:shadow-gold active:scale-[0.985]"
           >
-            <span className="flex items-center gap-3.5 font-medium tracking-wide text-brand-text">
+            <span className="flex items-center gap-3.5 text-base font-medium tracking-wide text-brand-text">
               <Phone className="size-5 shrink-0 text-brand-gold transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
               +351 256 385 045
             </span>
@@ -304,13 +304,13 @@ function Index() {
             </a>
           ))}
         </div>
-        <p className="font-serif text-sm italic text-brand-muted">
+        <p className="font-serif text-base italic text-brand-muted">
           Sónia Correia Cabeleireiros
         </p>
-        <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-brand-muted/70">
+        <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-brand-muted/70">
           São João da Madeira · Portugal
         </p>
-        <p className="mt-4 text-[9px] text-brand-muted/50">
+        <p className="mt-4 text-[10px] text-brand-muted/50">
           © {new Date().getFullYear()} Todos os direitos reservados
         </p>
       </footer>
