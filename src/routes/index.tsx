@@ -107,17 +107,17 @@ function Index() {
           style={{ animationDelay: "120ms" }}
         >
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
             Desde há 20+ anos
           </span>
           <span className="size-1 rotate-45 bg-brand-gold" aria-hidden="true" />
         </div>
 
-        <h1 className="rise mt-8 font-serif text-4xl font-bold tracking-tight" style={{ animationDelay: "220ms" }}>
+        <h1 className="rise mt-8 font-serif text-5xl font-bold tracking-tight" style={{ animationDelay: "220ms" }}>
           Sónia Correia
         </h1>
         <p
-          className="rise mt-2 text-brand-accent font-medium uppercase text-[11px] tracking-[0.45em] pl-[0.45em]"
+          className="rise mt-2 text-brand-accent font-medium uppercase text-[12px] tracking-[0.45em] pl-[0.45em]"
           style={{ animationDelay: "300ms" }}
         >
           Cabeleireiros
@@ -126,12 +126,12 @@ function Index() {
         <Ornament className="rise mt-7" style={{ animationDelay: "380ms" }} />
 
         <p
-          className="rise mt-6 max-w-xs font-serif italic text-[15px] leading-relaxed text-brand-muted"
+          className="rise mt-6 max-w-xs font-serif italic text-[16px] leading-relaxed text-brand-muted"
           style={{ animationDelay: "440ms" }}
         >
-          <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">“</span>
+          <span className="font-serif text-3xl leading-none text-brand-gold/70 align-[-0.15em]">“</span>
           Mais de 20 anos a cuidar do seu cabelo
-          <span className="font-serif text-2xl leading-none text-brand-gold/70 align-[-0.15em]">”</span>
+          <span className="font-serif text-3xl leading-none text-brand-gold/70 align-[-0.15em]">”</span>
         </p>
       </header>
 
